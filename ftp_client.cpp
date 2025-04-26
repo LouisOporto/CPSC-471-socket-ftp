@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
 #include <netinet/in.h>
 #include <sys/socket.h>
 
@@ -13,12 +12,22 @@ int main(int argc, char* argv[]) {
 
     printf("Running FTP client\n");
     
-    const char* host = "localhost";
     const char* port = "12345";
-    sockaddr_in srvaddr;
-
     int sd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    if (sd == -1) {
+        fprintf(stderr, "Failed to create socket\n");
+        return -1;
+    }
+    
+    sockaddr_in srvaddr;
+    srvaddr.sin_family = AF_INET;
+    srvaddr.sin_port = 12345;
+    srvaddr.sin_addr.s_addr = INADDR_ANY; // localhost
 
+    if(connect(sd, (struct sockaddr*)&srvaddr, sizeof(srvaddr)) == -1) {
+        fprintf(stderr, "Failed to connect to FTP server\n");
+        return -1;
+    }
 
     printf("Closing FTP client...\n");
     return 0;

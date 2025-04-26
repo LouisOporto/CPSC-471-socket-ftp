@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sstream>
-#include <string>
 #include <netinet/in.h>
 #include <sys/socket.h>
 
@@ -20,6 +18,10 @@ int main(int argc, char* argv[]) {
     
 
     int sd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+    srvaddr.sin_family = AF_INET;
+    srvaddr.sin_port = 12345;
+    srvaddr.sin_addr.s_addr = INADDR_ANY;
 
     printf("Closing FTP server...\n");
     return 0;
