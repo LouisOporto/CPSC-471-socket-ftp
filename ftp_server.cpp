@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <cstring>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -26,6 +27,7 @@ int main(int argc, char* argv[]) {
     
     if(bind(sd, (struct sockaddr*)&srvaddr, sizeof(srvaddr)) < 0) {
         fprintf(stderr, "Failed to bind to port %d\n", port);
+        return -1;
     }
     
     listen(sd, 5);
@@ -37,13 +39,28 @@ int main(int argc, char* argv[]) {
     while (running) {
         csd = accept(sd, nullptr, nullptr);
         if (csd < 0) continue;
-        else {
-            close(sd);
-            running = false;
-        }
-        printf("New connection\n");
         
+        printf("New connection\n");
+        char buffer[1024];
+        bool connected = true;
+        while (connected) {
+            int result = recv(csd, buffer, 1024, 0);
+            if (result <= 0) {
+                printf("Client disconnected\n");
+                connected = false;
+            }
+            
+            printf("ftp> %s", buffer);
+
+            if (strcmp(buffer, "quit") == 0) {
+                printf("Closing server\n");
+                connected = false;
+                running = false;
+            }
+        }
+        close(csd);
     }
+    close(sd);
 
     printf("Closing FTP server...\n");
     return 0;
