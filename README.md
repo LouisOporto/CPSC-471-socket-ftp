@@ -4,16 +4,16 @@
 Member 1: Helen Ngo\
 Email: helenngo@csu.fullerton.edu
 
-Member 2: Louis Oporto
+Member 2: Louis Oporto\
 Email: louisoporto042@csu.fullerton.edu
 
-Member 3: Caitlin San Pedro
+Member 3: Caitlin San Pedro\
 Email: caitlin8778@csu.fullerton.edu
 
-Member 4: Ana Rueda
+Member 4: Ana Rueda\
 Email: anarue7@csu.fullerton.edu
 
-Member 5: Brandy Nguyen
+Member 5: Brandy Nguyen\
 Email: Brandy.Nguyen02@csu.fullerton.edu
 
 ---
