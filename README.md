@@ -8,8 +8,8 @@ Email: louisoporto042@csu.fullerton.edu
 Member 3: Caitlin San Pedro
 Email: caitlin8778@csu.fullerton.edu
 
-Member 4:
-Email: 
+Member 4: Ana Rueda
+Email: anarue7@csu.fullerton.edu
 
 Member 5:
 Email:
