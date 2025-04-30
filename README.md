@@ -1,8 +1,8 @@
 # CPSC471 Programming Assignment 1
 ---
 # Group Members:
-Member 1: 
-Email:
+Member 1: Helen Ngo\
+Email: helenngo@csu.fullerton.edu
 
 Member 2: Louis Oporto
 Email: louisoporto042@csu.fullerton.edu
