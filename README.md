@@ -1,12 +1,12 @@
 # Group Members:
-Member 1:
+Member 1: 
 Email:
 
 Member 2: Louis Oporto
 Email: louisoporto042@csu.fullerton.edu
 
-Member 3:
-Email: 
+Member 3: Caitlin San Pedro
+Email: caitlin8778@csu.fullerton.edu
 
 Member 4:
 Email: 
