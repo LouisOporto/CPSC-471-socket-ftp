@@ -20,11 +20,14 @@ def send_file(filename, conn):
         conn.sendall(size.encode() + data)
 
 def recv_file(filename, conn):
-    size = int(conn.recv(10).decode())
-    data = recv_all(conn, size)
-    with open(filename, "wb") as f:
-        f.write(data)
-    print(f"Success: Received {filename} - {len(data)} bytes.")
+    try:
+        size = int(conn.recv(10).decode())
+        data = recv_all(conn, size)
+        with open(filename, "wb") as f:
+            f.write(data)
+        print(f"Success: Received {filename} - {len(data)} bytes.")
+    except ValueError:
+        print("Receive file ignored")
 
 def list_files():
     if platform.system() == "Windows":

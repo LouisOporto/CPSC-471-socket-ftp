@@ -15,16 +15,19 @@ def send_file(filename, conn):
         conn.sendall(size.encode() + data)
 
 def recv_file(filename, conn):
-    size = int(conn.recv(10).decode())
-    data = b''
-    while len(data) < size:
-        chunk = conn.recv(min(4096, size - len(data)))
-        if not chunk:
-            break
-        data += chunk
-    with open(filename, "wb") as f:
-        f.write(data)
-    print(f"Success: {filename} - {len(data)} bytes received.")
+    try:
+        size = int(conn.recv(10).decode())
+        data = b''
+        while len(data) < size:
+            chunk = conn.recv(min(4096, size - len(data)))
+            if not chunk:
+                break
+            data += chunk
+        with open(filename, "wb") as f:
+            f.write(data)
+        print(f"Success: {filename} - {len(data)} bytes received.")
+    except ValueError:
+        pass
 
 def handle_command(ctrl_sock):
     while True:
