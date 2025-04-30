@@ -1,3 +1,11 @@
+# Group Members:
+Member 1:
+Member 2: Louis Oporto
+Member 3:
+Member 4:
+Member 5:
+
+
 # How to run:
 1. Open 2 terminals
 2. Enter ```python sendfileserv.py 1234``` into one terminal
