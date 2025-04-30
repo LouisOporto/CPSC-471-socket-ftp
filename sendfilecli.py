@@ -46,7 +46,8 @@ def handle_command(ctrl_sock):
 
             if tokens[0] == "put":
                 filename = tokens[1]
-                if not os.path.exists(filename):
+                
+                if not os.path.exists(filename) or os.path.isdir(filename):
                     print("Failure: File does not exist.")
                     conn.close()
                     continue

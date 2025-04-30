@@ -27,7 +27,7 @@ def recv_file(filename, conn):
             f.write(data)
         print(f"Success: Received {filename} - {len(data)} bytes.")
     except ValueError:
-        print("Receive file ignored")
+        pass
 
 def list_files():
     if platform.system() == "Windows":
